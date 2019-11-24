@@ -43,7 +43,7 @@
                     </div><!-- end title -->
                     @if($post->image_url)
                     <div class="single-post-media">
-                        <img src="upload/{{ $post->image_url }}" alt="{{ $post->title }}" class="img-fluid">
+                        <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="img-fluid">
                     </div><!-- end media -->
                     @endif
                     <div class="blog-content">

@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
         $date = Carbon::create(2019, 9, 25, 9);
 
         for($i=1; $i <= 10; $i++){
-          $image = "garden_sq_" . rand(1, 8) . ".jpg";
+          $image = "garden_sq_0" . rand(1, 8) . ".jpg";
           $date->addDays(1);
           $publishedDate = clone($date);
           $createdDate = clone($date);
