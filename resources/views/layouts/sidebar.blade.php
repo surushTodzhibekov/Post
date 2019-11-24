@@ -71,7 +71,7 @@
                 <ul>
                   @foreach($categories as $category)
                     <li>
-                      <a href="{{ route('category', $category->id) }}">{{ $category->title }}
+                      <a href="{{ route('category', $category->slug) }}">{{ $category->title }}
                       <span>{{ $category->posts->count() }}</span></a>
                     </li>
                     @endforeach

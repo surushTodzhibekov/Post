@@ -62,12 +62,21 @@
                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                         <div class="page-wrapper">
                             <div class="blog-list clearfix">
+                              @if(! $posts->count())
+                              <div class="alert alert-danger">
+                                <p>Nothing found</p>
+                              </div>
+                              @else
+                                @if (isset($categoryName))
+                                  <div class="alert alert-info">
+                                      <p>Category: <strong>{{ $categoryName }}</strong></p>
+                                  </div>
+                                @endif
                                 <div class="blog-box row">
                                   @foreach($posts as $post)
-
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-4">
                                       @if($post->image_url)
-                                        <div class="post-media mb-4">
+                                        <div class="post-media ">
                                             <a href="garden-single.html" title="">
                                                 <img src="{{ $post->image_url }}" alt=""    class="img-fluid">
                                                 <div class="hovereffect"></div>
@@ -76,7 +85,9 @@
                                         @endif
                                     </div><!-- end col -->
                                     <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
+                                        <span class="bg-aqua"><a href="{{ route('category', $post->category->slug) }}" title="">
+                                          {{ $post->category->title }}
+                                        </a></span>
                                         <h4><a href="{{ route('blog.show', $post->slug) }}" title="">{{ $post->title }}</a></h4>
                                         <p>{!! $post->excerpt_html !!}</p>
                                         <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
@@ -85,7 +96,7 @@
                                     </div><!-- end meta -->
                                     @endforeach
                                 </div><!-- end blog-box -->
-
+                                @endif
 
                             </div><!-- end blog-list -->
                         </div><!-- end page-wrapper -->
