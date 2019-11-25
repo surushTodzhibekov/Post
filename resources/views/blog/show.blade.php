@@ -23,13 +23,13 @@
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="blog-title-area">
-                        <span class="color-green"><a href="garden-category.html" title="">Gardening</a></span>
+                        <span class="color-green"><a href="{{ route('category', $post->category->slug) }}" title="">{{ $post->category->title }}</a></span>
 
                         <h3>{{ $post->title }}</h3>
 
                         <div class="blog-meta big-meta">
                             <small><a href="garden-single.html" title="">{{ $post->date }}</a></small>
-                            <small><a href="blog-author.html" title="">{{ $post->author->name }}</a></small>
+                            <small><a href="{{ route('author', $post->author->slug) }}" title="">{{ $post->author->name }}</a></small>
                             <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
                         </div><!-- end meta -->
 
@@ -90,7 +90,7 @@
                             </div><!-- end col -->
 
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                <h4><a href="#">{{ $post->author->name }}</a></h4>
+                                <h4><a href="{{ route('author', $post->author->slug) }}">{{ $post->author->name }}</a></h4>
                                 <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Forest Time!</p>
 
                                 <div class="topsocial">

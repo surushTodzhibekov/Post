@@ -72,6 +72,13 @@
                                       <p>Category: <strong>{{ $categoryName }}</strong></p>
                                   </div>
                                 @endif
+
+                                @if (isset($authorName))
+                                  <div class="alert alert-info">
+                                      <p>Author: <strong>{{ $authorName }}</strong></p>
+                                  </div>
+                                @endif
+
                                 <div class="blog-box row">
                                   @foreach($posts as $post)
                                     <div class="col-md-4 mb-4">
@@ -92,7 +99,7 @@
                                         <p>{!! $post->excerpt_html !!}</p>
                                         <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
                                         <small><a href="{{ route('blog.show', $post->slug) }}" title="">{{ $post->date }}</a></small>
-                                        <small><a href="#" title="">{{ $post->author->name }}</a></small>
+                                        <small><a href="{{ route('author', $post->author->slug) }}" title="">{{ $post->author->name }}</a></small>
                                     </div><!-- end meta -->
                                     @endforeach
                                 </div><!-- end blog-box -->
