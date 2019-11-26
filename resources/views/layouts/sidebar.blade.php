@@ -11,32 +11,20 @@
         </div><!-- end widget -->
 
         <div class="widget">
-            <h2 class="widget-title">Recent Posts</h2>
+            <h2 class="widget-title">Popular Posts</h2>
             <div class="blog-list-widget">
                 <div class="list-group">
-                    <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                  @foreach($popularPosts as $post)
+                    <a href="{{ route('blog.show', $post->slug) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
-                            <img src="upload/garden_sq_09.jpg" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                            <small>12 Jan, 2016</small>
+                          @if($post->image_url)
+                            <img src="{{ $post->image_url }}" alt="" class="img-fluid float-left">
+                          @endif  
+                            <h5 class="mb-1">{{ $post->title }}</h5>
+                            <small>{{ $post->date }}</small>
                         </div>
                     </a>
-
-                    <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="w-100 justify-content-between">
-                            <img src="upload/garden_sq_06.jpg" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                            <small>11 Jan, 2016</small>
-                        </div>
-                    </a>
-
-                    <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="w-100 last-item justify-content-between">
-                            <img src="upload/garden_sq_02.jpg" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                            <small>07 Jan, 2016</small>
-                        </div>
-                    </a>
+                  @endforeach
                 </div>
             </div><!-- end blog-list -->
         </div><!-- end widget -->

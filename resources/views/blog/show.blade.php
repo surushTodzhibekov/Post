@@ -85,13 +85,16 @@
                     <div class="custombox authorbox clearfix">
                         <h4 class="small-title">About author</h4>
                         <div class="row">
+                          <?php $author = $post->author; ?>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <img src="upload/author.jpg" alt="" class="img-fluid rounded-circle">
+                              <a href="{{ 'author', $author->slug }}">
+                                <img src="{{ $author->gravatar() }}" width="90" height="90" alt="{{ $author->name }}" class="img-fluid rounded-circle">
+                              </a>
                             </div><!-- end col -->
 
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                <h4><a href="{{ route('author', $post->author->slug) }}">{{ $post->author->name }}</a></h4>
-                                <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Forest Time!</p>
+                                <h4><a href="{{ route('author', $author->slug) }}">{{ $author->name }}</a></h4>
+                                <p>{!! $author->bio_html !!}</p>
 
                                 <div class="topsocial">
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
