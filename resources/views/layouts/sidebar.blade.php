@@ -19,7 +19,7 @@
                         <div class="w-100 justify-content-between">
                           @if($post->image_url)
                             <img src="{{ $post->image_url }}" alt="" class="img-fluid float-left">
-                          @endif  
+                          @endif
                             <h5 class="mb-1">{{ $post->title }}</h5>
                             <small>{{ $post->date }}</small>
                         </div>

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
   protected $dates = ['published_at'];
-
+  //protected $fillable = ['view_count'];
   public function author()
   {
     return $this->belongsTo(User::class);
@@ -32,6 +32,21 @@ class Post extends Model
 
        return $imageUrl;
    }
+
+   // public function getImageThumbUrlAttribute($value)
+   //  {
+   //      $imageUrl = "";
+   //
+   //      if ( ! is_null($this->image))
+   //      {
+   //        $ext       = substr(strrchr($this->image, '.'), 1);
+   //        $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
+   //        $imagePath = public_path() . "/upload/" . $thumbnail;
+   //        if (file_exists($imagePath)) $imageUrl = asset("upload/" . $thumbnail);
+   //    }
+   //
+   //    return $imageUrl;
+   //  }
 
    public function getDateAttribute($value)
    {

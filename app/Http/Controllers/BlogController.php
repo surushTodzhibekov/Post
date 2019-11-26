@@ -55,6 +55,11 @@ class BlogController extends Controller
   public function show(Post $post)
   {
     //$post = Post::findOrFail($id);
+    // $viewCount = $post->view_count + 1;
+    // $post->update(['view_count' => $viewCount]);
+
+    // Second way to increase reader
+    $post->increment('view_count');
     return view("blog.show", compact('post'));
   }
 }
